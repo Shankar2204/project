@@ -1,6 +1,5 @@
 CREATE DATABASE IF NOT EXISTS ecommerce_analytics;
 USE ecommerce_analytics;
--- Tables are created by the schema script already
 SHOW TABLES;
 
 
@@ -38,7 +37,7 @@ FROM order_items oi
 JOIN products p ON oi.product_id = p.product_id
 JOIN orders o ON oi.order_id = o.order_id
 WHERE o.order_status = 'Completed'
-AND YEAR(o.order_date) = 2022  -- <-- Filter applied
+AND YEAR(o.order_date) = 2022 
 GROUP BY p.category
 ORDER BY margin_percent ASC;
 
